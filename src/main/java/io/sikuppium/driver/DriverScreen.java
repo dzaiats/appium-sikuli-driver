@@ -36,9 +36,9 @@ public class DriverScreen implements Screen {
 
     private BufferedImage crop(BufferedImage src, int x, int y, int width, int height) {
         BufferedImage dest = new BufferedImage(width, height, BufferedImage.TYPE_3BYTE_BGR);
-        Graphics g = dest.getGraphics();
-        g.drawImage(src, 0, 0, width, height, x, y, x + width, y + height, null);
-        g.dispose();
+        Graphics graphics = dest.getGraphics();
+        graphics.drawImage(src, 0, 0, width, height, x, y, x + width, y + height, null);
+        graphics.dispose();
         return dest;
     }
 

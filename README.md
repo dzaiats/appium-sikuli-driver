@@ -8,6 +8,12 @@ To run the sample test need to have pre-installed Maven 3 and Java 1.8 and need 
 
 Please, specify correct path to the application which You can find in the folder "app" under the main parent folder of the project.
 
+Current example is adapted for the devices with resolution of display: 768x1280, 1080x1920, 1200x1920.
+
+### How to take a correct images
+To take a correct screenshots need to use a tool SikuliX. You cannot take a screenshot directly from simulator screen. Only crop from the
+screenshot provided by WebDriver API in class DriverScreen.lava (line 22)
+
 ### Help and contact
 Also You can find the application My Reaction on Play Store https://play.google.com/store/apps/details?id=com.denyszaiats.myreactions
 

@@ -24,7 +24,7 @@ public class BaseTest {
         );
         driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
         driver.setDriver(driver);
-        driver.setSimilarityScore(0.2);
+        driver.setSimilarityScore(0.95);
         driver.setWaitSecondsAfterClick(2);
         driver.setWaitSecondsForImage(10);
     }
@@ -37,8 +37,11 @@ public class BaseTest {
     }
 
     protected ImageElement waitForImageElement(String resourceName, int secondsToWait) throws InterruptedException {
-        sleep(3000);
-        java.net.URL resource = this.getClass().getClassLoader().getResource("fhd_" + resourceName + ".png");
+        sleep(2000);
+        String prefix = String.valueOf(driver.getSize().getWidth()) + "x" +
+                        String.valueOf(driver.getSize().getHeight()) + "_";
+        URL resource = this.getClass().getClassLoader().getResource(prefix.replace(".0", "") + resourceName + ".png");
+        System.out.println(resource);
         ImageElement image = driver.findImageElement(resource);
         int attempts = 0;
         while (image == null && attempts < secondsToWait / 10) {

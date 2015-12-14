@@ -4,7 +4,7 @@ import io.appium.java_client.AppiumDriver;
 
 import static java.lang.Thread.sleep;
 
-public class DefaultImageElement implements ImageElement {
+public class CustomImageElement implements ImageElement {
 
     private final int x;
     private final int y;
@@ -13,7 +13,7 @@ public class DefaultImageElement implements ImageElement {
     private final int waitAfterClick;
     private AppiumDriver driver;
 
-    public DefaultImageElement(AppiumDriver driver, int x, int y, int width, int height, int waitAfterClick) {
+    public CustomImageElement(AppiumDriver driver, int x, int y, int width, int height, int waitAfterClick) {
         this.driver = driver;
         this.x = x;
         this.y = y;

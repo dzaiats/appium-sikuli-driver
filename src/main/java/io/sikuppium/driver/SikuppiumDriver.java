@@ -21,17 +21,17 @@ public class SikuppiumDriver extends AppiumDriver {
     private double similarityScore = 0.7;
     private int waitSecondsForImage = 10;
     private AppiumDriver driver;
+    private DriverScreen driverScreen;
 
     public SikuppiumDriver(URL remoteAddress, Capabilities desiredCapabilities) {
         super(remoteAddress, desiredCapabilities);
     }
 
     public ImageElement findImageElement(URL imageUrl) {
-        DriverScreen driverScreen;
         try {
             driverScreen = new DriverScreen(driver);
         } catch (IOException e1) {
-            throw new RuntimeException("unable to initialize SikuliFirefoxDriver");
+            throw new RuntimeException("Unable to init SikkupiumDriver");
         }
 
         ScreenRegion webdriverRegion = new DefaultScreenRegion(driverScreen);
@@ -40,25 +40,34 @@ public class SikuppiumDriver extends AppiumDriver {
         ImageTarget target = new ImageTarget(imageUrl);
         final ScreenRegion imageRegion = webdriverRegion.wait(target, waitSecondsForImage);
 
-        Rectangle r;
+        Rectangle rectangle;
 
         if (imageRegion != null) {
-            r = imageRegion.getBounds();
-            //LOG.debug("image is found at {} {} {} {}", r.x, r.y, r.width, r.height);
+            rectangle = imageRegion.getBounds();
+            LOG.debug("Image is found at {} {} {} {}", rectangle.x, rectangle.y, rectangle.width, rectangle.height);
         } else {
-            LOG.debug("image is not found");
+            LOG.debug("Image is not found");
             return null;
         }
 
 
-        return new DefaultImageElement(
+        return new CustomImageElement(
                 this.driver,
-                r.x,
-                r.y,
-                r.width,
-                r.height,
+                rectangle.x,
+                rectangle.y,
+                rectangle.width,
+                rectangle.height,
                 this.waitSecondsAfterClick
         );
+    }
+
+    public Dimension getSize(){
+        try {
+            driverScreen = new DriverScreen(driver);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return driverScreen.getSize();
     }
 
     public void setWaitSecondsAfterClick(int waitSecondsAfterClick) {
