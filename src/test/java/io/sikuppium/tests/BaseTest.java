@@ -11,6 +11,7 @@ import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 import static java.lang.Thread.sleep;
+import static org.testng.Assert.assertTrue;
 
 public class BaseTest {
 
@@ -39,8 +40,9 @@ public class BaseTest {
     protected ImageElement waitForImageElement(String resourceName, int secondsToWait) throws InterruptedException {
         sleep(2000);
         String prefix = String.valueOf(driver.getSize().getWidth()) + "x" +
-                        String.valueOf(driver.getSize().getHeight()) + "_";
-        URL resource = this.getClass().getClassLoader().getResource(prefix.replace(".0", "") + resourceName + ".png");
+                String.valueOf(driver.getSize().getHeight()) + "_";
+        resourceName = prefix.replace(".0", "") + resourceName + ".png";
+        URL resource = this.getClass().getClassLoader().getResource(resourceName);
         System.out.println(resource);
         ImageElement image = driver.findImageElement(resource);
         int attempts = 0;
@@ -52,6 +54,9 @@ public class BaseTest {
                 break;
             }
         }
+
+        assertTrue(image != null, String.format("Cannot find image %s in %s seconds",
+                resourceName, String.valueOf(secondsToWait)));
 
         return image;
     }

@@ -1,5 +1,6 @@
 # Sikuppium
 Open source project which allows to mix Appium and Sikuli under one framework and easy manipulate by content and recognition of images.
+This is just a very nice helper in the automation testing to help test something that was left for manual visual testing.
 Now You can check without any problem in Your mobile automation project that correct Logo appears or correct photo is showed etc.
 
 ### How to run

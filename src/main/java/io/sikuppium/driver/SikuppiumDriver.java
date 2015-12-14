@@ -38,7 +38,7 @@ public class SikuppiumDriver extends AppiumDriver {
         webdriverRegion.setScore(similarityScore);
 
         ImageTarget target = new ImageTarget(imageUrl);
-        final ScreenRegion imageRegion = webdriverRegion.wait(target, waitSecondsForImage);
+        ScreenRegion imageRegion = webdriverRegion.wait(target, waitSecondsForImage);
 
         Rectangle rectangle;
 
@@ -50,7 +50,6 @@ public class SikuppiumDriver extends AppiumDriver {
             return null;
         }
 
-
         return new CustomImageElement(
                 this.driver,
                 rectangle.x,
@@ -61,7 +60,7 @@ public class SikuppiumDriver extends AppiumDriver {
         );
     }
 
-    public Dimension getSize(){
+    public Dimension getSize() {
         try {
             driverScreen = new DriverScreen(driver);
         } catch (IOException e) {
