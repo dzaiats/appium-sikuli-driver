@@ -1,0 +1,20 @@
+# Created by .ignore support plugin (hsz.mobi)
+### PlayFramework template
+bin/
+/db
+.eclipse
+/lib/
+/logs/
+/modules
+/project/project
+/project/target
+/target
+tmp/
+test-result
+server.pid
+*.iml
+*.eml
+/dist/
+.cache
+.idea
+
