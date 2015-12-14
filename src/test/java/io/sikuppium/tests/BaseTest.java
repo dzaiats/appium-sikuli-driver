@@ -38,7 +38,7 @@ public class BaseTest {
 
     protected ImageElement waitForImageElement(String resourceName, int secondsToWait) throws InterruptedException {
         sleep(3000);
-        java.net.URL resource = this.getClass().getClassLoader().getResource(resourceName + ".png");
+        java.net.URL resource = this.getClass().getClassLoader().getResource("fhd_" + resourceName + ".png");
         ImageElement image = driver.findImageElement(resource);
         int attempts = 0;
         while (image == null && attempts < secondsToWait / 10) {
