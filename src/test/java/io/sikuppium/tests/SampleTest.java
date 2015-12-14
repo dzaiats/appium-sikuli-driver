@@ -1,6 +1,6 @@
-package tests;
+package io.sikuppium.tests;
 
-import driver.ImageElement;
+import io.sikuppium.driver.ImageElement;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
@@ -29,6 +29,5 @@ public class SampleTest extends BaseTest{
 
         String result = driver.findElementById("com.denyszaiats.myreactions:id/resultsFasterClicker").getText();
         assertEquals(result, "3");
-
     }
 }

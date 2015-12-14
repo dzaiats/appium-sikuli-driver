@@ -1,4 +1,4 @@
-package driver;
+package io.sikuppium.driver;
 
 
 public interface ImageElement {

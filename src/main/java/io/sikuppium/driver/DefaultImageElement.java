@@ -1,4 +1,4 @@
-package driver;
+package io.sikuppium.driver;
 
 import io.appium.java_client.AppiumDriver;
 

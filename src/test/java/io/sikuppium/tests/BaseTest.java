@@ -1,8 +1,9 @@
-package tests;
+package io.sikuppium.tests;
 
-import driver.CapabilitiesFactory;
-import driver.ImageElement;
-import driver.SikuppiumDriver;
+
+import io.sikuppium.driver.CapabilitiesFactory;
+import io.sikuppium.driver.ImageElement;
+import io.sikuppium.driver.SikuppiumDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 

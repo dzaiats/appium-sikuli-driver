@@ -1,4 +1,4 @@
-package driver;
+package io.sikuppium.driver;
 
 import org.openqa.selenium.remote.DesiredCapabilities;
 

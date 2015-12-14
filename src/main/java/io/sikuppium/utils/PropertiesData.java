@@ -1,4 +1,4 @@
-package utils;
+package io.sikuppium.utils;
 
 import java.io.IOException;
 import java.util.Properties;
