@@ -13,7 +13,7 @@ Current example is adapted for the devices with resolution of display: 768x1280,
 
 ### How to take a correct images
 To take a correct screenshots need to use a tool SikuliX. You cannot take a screenshot directly from simulator screen. Only crop from the
-screenshot provided by WebDriver API in class DriverScreen.lava (line 22)
+screenshot provided by WebDriver API in class DriverScreen.java (line 22)
 
 ### Help and contact
 Also You can find the application My Reaction on Play Store https://play.google.com/store/apps/details?id=com.denyszaiats.myreactions
