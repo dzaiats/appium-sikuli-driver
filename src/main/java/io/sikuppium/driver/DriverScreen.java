@@ -1,7 +1,8 @@
 package io.sikuppium.driver;
 
 import io.appium.java_client.AppiumDriver;
-import org.openqa.selenium.OutputType;
+import org.openqa.selenium.*;
+import org.openqa.selenium.Dimension;
 import org.sikuli.api.Screen;
 
 import javax.imageio.ImageIO;
@@ -13,13 +14,11 @@ import java.io.IOException;
 public class DriverScreen implements Screen {
 
     public AppiumDriver driver;
-    final private Dimension size;
+    private Dimension size;
 
     public DriverScreen(AppiumDriver driver) throws IOException {
         this.driver = driver;
-        File screenshotFile = this.driver.getScreenshotAs(OutputType.FILE);
-        BufferedImage b = ImageIO.read(screenshotFile);
-        size = new Dimension(b.getWidth(), b.getHeight());
+        size = driver.manage().window().getSize();
     }
 
     @Override
@@ -28,6 +27,7 @@ public class DriverScreen implements Screen {
         try {
             BufferedImage full = ImageIO.read(screenshotFile);
             BufferedImage cropped = crop(full, x, y, width, height);
+            size = new Dimension(full.getWidth(), full.getHeight());
             return cropped;
         } catch (IOException e) {
         }
@@ -43,7 +43,7 @@ public class DriverScreen implements Screen {
     }
 
     @Override
-    public Dimension getSize() {
-        return size;
+    public java.awt.Dimension getSize() {
+        return new java.awt.Dimension(size.getWidth(), size.getHeight());
     }
 }

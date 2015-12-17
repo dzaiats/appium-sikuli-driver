@@ -39,8 +39,7 @@ public class BaseTest {
 
     protected ImageElement waitForImageElement(String resourceName, int secondsToWait) throws InterruptedException {
         sleep(2000);
-        String prefix = String.valueOf(driver.getSize().getWidth()) + "x" +
-                String.valueOf(driver.getSize().getHeight()) + "_";
+        String prefix = String.valueOf(driver.getSize().getWidth()) + "x_";
         resourceName = prefix.replace(".0", "") + resourceName + ".png";
         URL resource = this.getClass().getClassLoader().getResource(resourceName);
         System.out.println(resource);
