@@ -3,7 +3,7 @@ package net.itarray.tests;
 
 import net.itarray.driver.CapabilitiesFactory;
 import net.itarray.driver.ImageElement;
-import net.itarray.driver.SikuppiumDriver;
+import net.itarray.driver.SikuppiumAndroidDriver;
 import org.junit.After;
 import org.junit.Before;
 
@@ -14,11 +14,11 @@ import static junit.framework.TestCase.assertTrue;
 
 public class BaseTest {
 
-    protected SikuppiumDriver driver;
+    protected SikuppiumAndroidDriver driver;
 
     @Before
     public void setUp() throws Exception {
-        driver = new SikuppiumDriver(
+        driver = new SikuppiumAndroidDriver(
                 new URL("http://0.0.0.0:4723/wd/hub"),
                 CapabilitiesFactory.getCapabilities()
         );
