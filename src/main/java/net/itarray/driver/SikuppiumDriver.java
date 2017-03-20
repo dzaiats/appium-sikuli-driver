@@ -1,6 +1,6 @@
 package net.itarray.driver;
 
-import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileDriver;
 
 import java.awt.*;
 import java.net.URL;
@@ -8,7 +8,7 @@ import java.net.URL;
 /**
  * Created by ZayCo on 19/03/17.
  */
-public interface SikuppiumDriver {
+public interface SikuppiumDriver extends MobileDriver {
 
     ImageElement findImageElement(URL imageUrl);
 
@@ -20,5 +20,5 @@ public interface SikuppiumDriver {
 
     void setWaitSecondsForImage(int waitSecondsForImage);
 
-    void setDriver(AppiumDriver driver);
+    void setDriver(SikuppiumDriver driver);
 }

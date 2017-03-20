@@ -14,7 +14,7 @@ import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 
-public class SikuppiumAndroidDriver extends AndroidDriver implements SikuppiumDriver {
+public class SikuppiumAndroidDriver extends AndroidDriver {
 
     private final static Logger LOG = LoggerFactory.getLogger(SikuppiumAndroidDriver.class);
 

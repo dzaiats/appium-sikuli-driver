@@ -14,7 +14,7 @@ import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 
-public class SikuppiumiOSDriver extends IOSDriver implements SikuppiumDriver {
+public class SikuppiumiOSDriver extends IOSDriver {
 
     private final static Logger LOG = LoggerFactory.getLogger(SikuppiumiOSDriver.class);
 

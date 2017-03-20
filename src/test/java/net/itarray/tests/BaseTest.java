@@ -1,11 +1,8 @@
 package net.itarray.tests;
 
-
-import net.itarray.driver.CapabilitiesFactory;
 import net.itarray.driver.ImageElement;
 import net.itarray.driver.SikuppiumAndroidDriver;
 import org.junit.After;
-import org.junit.Before;
 
 import java.net.URL;
 
@@ -15,19 +12,6 @@ import static junit.framework.TestCase.assertTrue;
 public class BaseTest {
 
     protected SikuppiumAndroidDriver driver;
-
-    @Before
-    public void setUp() throws Exception {
-        driver = new SikuppiumAndroidDriver(
-                new URL("http://0.0.0.0:4723/wd/hub"),
-                CapabilitiesFactory.getCapabilities()
-        );
-        //driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-        driver.setDriver(driver);
-        driver.setSimilarityScore(0.1);
-        driver.setWaitSecondsAfterClick(2);
-        driver.setWaitSecondsForImage(10);
-    }
 
     @After
     public void tearDown() {

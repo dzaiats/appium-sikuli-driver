@@ -24,12 +24,21 @@ public class CustomImageElement implements ImageElement {
 
     @Override
     public ImageElement tap() {
-        driver.tap(1, x + width / 2, y + height / 2, 100);
+        driver.tap(1, x + width / 2, y + height / 2, 1);
         try {
             waitAfterClick();
         } catch (InterruptedException e) {
         }
+        return this;
+    }
 
+    @Override
+    public ImageElement pressAndHold(int seconds) {
+        driver.tap(1, x + width / 2, y + height / 2, seconds * 1000);
+        try {
+            waitAfterClick();
+        } catch (InterruptedException e) {
+        }
         return this;
     }
 
