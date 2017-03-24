@@ -35,8 +35,8 @@ public class NativeGameApplicationTest extends BaseTest {
         waitForImageElement("back", 20).tap();
         waitForImageElement("next", 20).tap();
         waitForImageElement("next", 20).tap();
-        waitForImageElement("start", 20).tap();
-        waitForImageElement("gas", 20).pressAndHold(5);
-        waitForImageElement("break", 20).pressAndHold(2);
+        waitForImageElement("start_flag", 20).tap();
+        //waitForImageElement("gas", 20).pressAndHold(5);
+        //waitForImageElement("break", 20).pressAndHold(2);
     }
 }

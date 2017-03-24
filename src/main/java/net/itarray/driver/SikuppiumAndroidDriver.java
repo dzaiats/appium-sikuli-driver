@@ -19,7 +19,7 @@ public class SikuppiumAndroidDriver extends AndroidDriver {
     private final static Logger LOG = LoggerFactory.getLogger(SikuppiumAndroidDriver.class);
 
     private int waitSecondsAfterClick = 2;
-    private double similarityScore = 0.7;
+    private double similarityScore = 0.5;
     private int waitSecondsForImage = 10;
     private AppiumDriver driver;
     private DriverScreen driverScreen;
@@ -39,6 +39,7 @@ public class SikuppiumAndroidDriver extends AndroidDriver {
         webdriverRegion.setScore(similarityScore);
 
         ImageTarget target = new ImageTarget(imageUrl);
+        target.setMinScore(0.3);
         ScreenRegion imageRegion = webdriverRegion.find(target);
         Rectangle rectangle;
 

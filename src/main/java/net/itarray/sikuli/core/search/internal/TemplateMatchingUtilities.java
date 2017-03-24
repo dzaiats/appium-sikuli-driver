@@ -30,7 +30,7 @@ public class TemplateMatchingUtilities {
 			iwidth = input.width() - target.width() + 1;
 			iheight = input.height() - target.height() + 1;
 		}		
-		IplImage map = IplImage.create(cvSize(iwidth,iheight), 32, 1);      
+		IplImage map = IplImage.create(cvSize(iwidth,iheight), IPL_DEPTH_32F, target.nChannels());
 		opencv_imgproc.cvMatchTemplate(input, target, map, CV_TM_CCOEFF_NORMED);
 //		opencv_imgproc.cvMatchTemplate(input, target, map, CV_TM_SQDIFF_NORMED);
 //		cvSubRS(map, cvScalarAll(1), map, null);
@@ -213,7 +213,7 @@ public class TemplateMatchingUtilities {
 		r.height = target.height();
 		r.score = detectionScore;
 
-		
+
 		// Suppress returned match
 		int xmargin = target.width()/3;
 		int ymargin = target.height()/3;
@@ -226,7 +226,7 @@ public class TemplateMatchingUtilities {
 		int x1 = Math.min(x+xmargin,resultMatrix.width());  // no need to blank right and bottom
 		int y1 = Math.min(y+ymargin,resultMatrix.height());
 
-		cvRectangle(resultMatrix, cvPoint(x0, y0), cvPoint(x1-1, y1-1), 
+		cvRectangle(resultMatrix, cvPoint(x0, y0), cvPoint(x1-1, y1-1),
 				cvRealScalar(0.0), CV_FILLED, 8,0);
 		
 		return r;
